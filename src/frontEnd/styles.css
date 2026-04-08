@@ -1,0 +1,287 @@
+:root {
+    --primaryColor: #7749F8;
+    --primaryColorHover: #543c96;
+    --secondaryColor: #27d430;
+    --secondaryColorHover: #18851e;
+    --buttonColor: #ffffff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+header {
+    width: 80vw;
+    text-align: center;
+    margin: 25px auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+hr {
+    border-top: dotted 3px;
+    margin-bottom: 30px;
+    opacity: 0.5;
+}
+
+/* index.php*/
+#cadastro {
+    margin-top: 30px;
+    width: 275px;
+    height: 4rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primaryColor);
+    color: var(--buttonColor)
+}
+
+#cadastro:hover {
+    background-color: var(--primaryColorHover);
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+#cardHolder {
+    width: 70%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 30px;
+}
+
+.card {
+    width: 100%;
+    max-width: 350px;
+    outline: 2px solid lightgray;
+    overflow: hidden;
+    height: 360px;
+    border-radius: 10px;
+}
+
+.dogPhoto {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card h2, .card p, .cardButton {
+    margin: 20px 20px;
+}
+
+.cardButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botao {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    color: var(--buttonColor);
+    border-radius: 10px;
+    border: none;
+}
+
+.corPrincipal {
+    background-color: var(--primaryColor);
+    outline: none;
+}
+
+.corPrincipal:hover {
+    background-color: var(--primaryColorHover);
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+.corSecundaria {
+    background-color: var(--secondaryColor);
+    outline: none;
+}
+
+.corSecundaria:hover {
+    background-color: var(--secondaryColorHover);
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+/* cadastro.php */
+
+#formSign {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    box-shadow: 0 5px 15px gray;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+#formSign label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+#formSign input,
+#formSign textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    resize: vertical;
+}
+
+#formSign input:invalid, 
+#formSign textarea:invalid {
+    border: 2px solid red;
+}
+
+
+
+
+/* Button */
+#formSign input[type="submit"] {
+    grid-column: span 2;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: var(--primaryColor);
+    color: var(--buttonColor);
+    border: none;
+    border-radius: 8px;
+}
+
+#formSign input[type="submit"]:hover {
+    background-color: var(--primaryColorHover);
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+.checkbox-group {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* dados do pet*/
+
+#dadosDoPet {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start; /* 👈 melhor que center aqui */
+    gap: 50px;
+    width: 80%;
+    margin: 10px auto;
+}
+
+#informacoesGerais p {
+    margin: 22px 0;
+}
+
+
+#dadosDoPet img {
+    width: 30vw;
+    justify-self: end;
+}
+
+#dadosDoPet a:first-of-type {
+    justify-self: end;
+}
+
+strong::after {
+    content: " ";
+}
+
+#informacoesDoPet {
+    outline: 2px solid gray;
+    border-radius: 15px;
+    box-shadow: 3px 3px 4px 4px gray;
+    width: 75%;
+    margin: 20px auto;
+    padding: 30px 0;
+}
+
+#descricao {
+    grid-column: span 2;
+}
+
+#descricao h2 {
+    margin-bottom: 10px;
+}
+
+/* Celular */
+@media (max-width: 768px) {
+
+    #cardHolder {
+        width: 90%;
+        justify-content: center;
+    }
+
+    header {
+        width: 90%;
+    }
+
+    #cadastro {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    /* Form vira 1 coluna */
+    #formSign {
+        grid-template-columns: 1fr;
+    }
+
+    #formSign > * {
+        grid-column: span 1 !important;
+    } 
+
+    .form-group.full {
+        grid-column: span 1;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    #dadosDoPet {
+        grid-template-columns: 1fr;
+    }
+
+    #dadosDoPet img {
+        width: 100%;
+    }
+
+    #dadosDoPet > * {
+        grid-column: span 1 !important;
+
+    }
+
+    #dadosDoPet > a {
+        justify-self: center;
+
+    }
+
+}

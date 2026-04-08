@@ -10,13 +10,13 @@
 
 <header>
     <h1>Cadastro de Pet</h1>
-    <p>Preencha os dados do animal para disponibilizá-lo na vitrine de adoção.</p>
+    <p>Preencha os dados do animal para disponibilizá lo na vitrine de adoção.</p>
     <hr>
 </header>
 
 <main>
     <div class="form-wrapper">
-        <form id="formSign">
+        <form id="formSign" enctype="multipart/form-data">
             <div class="form-grid">
                 <div class="form-group">
                     <label>Nome *</label>
@@ -73,8 +73,8 @@
                 </div>
 
                 <div class="form-group full">
-                    <label>URL da foto</label>
-                    <input type="text" name="foto">
+                    <label>Imagem do pet</label>
+                    <input type="file" name="foto_arquivo" accept="image/*">
                 </div>
 
                 <div class="form-group full">
@@ -110,29 +110,22 @@ document.getElementById('formSign').addEventListener('submit', async function(ev
     const form = event.target;
     const formData = new FormData(form);
 
-    const dados = {
-        nome: formData.get('nome'),
-        sexo: formData.get('sexo'),
-        especie: formData.get('especie'),
-        data_nascimento: formData.get('data_nascimento'),
-        porte: formData.get('porte'),
-        peso_atual: formData.get('peso_atual'),
-        cor_pelagem: formData.get('cor_pelagem'),
-        raca: formData.get('raca'),
-        descricao: formData.get('descricao'),
-        numero_contato: formData.get('numero_contato'),
-        foto: formData.get('foto'),
-        castrado: formData.get('castrado') ? 1 : 0,
-        vacinado: formData.get('vacinado') ? 1 : 0
-    };
+    if (!formData.get('castrado')) {
+        formData.set('castrado', '0');
+    } else {
+        formData.set('castrado', '1');
+    }
+
+    if (!formData.get('vacinado')) {
+        formData.set('vacinado', '0');
+    } else {
+        formData.set('vacinado', '1');
+    }
 
     try {
         const resposta = await fetch('api/animais.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
+            body: formData
         });
 
         const texto = await resposta.text();

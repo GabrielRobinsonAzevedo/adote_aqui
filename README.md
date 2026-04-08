@@ -9,6 +9,7 @@ A comunicação entre cliente e servidor é feita no padrão HTTP, com troca de 
 Em ambiente local com MAMP, a URL base da API é:
 
 http://localhost:8888/adote_aqui/api
+
 3. Formato de comunicação
 Requisições
 
@@ -24,6 +25,7 @@ As respostas da API são retornadas em formato:
 application/json
 Codificação
 UTF-8
+
 4. Configuração de cabeçalhos
 
 A API foi preparada para permitir integração com o front end hospedado localmente em outra porta, por exemplo um projeto Next.js em localhost:3000.

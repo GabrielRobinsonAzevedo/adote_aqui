@@ -5,7 +5,7 @@ require_once __DIR__ . '/../service/AnimalService.php';
 
 class AnimalController
 {
-    private $service;
+    public $service;
 
     public function __construct()
     {

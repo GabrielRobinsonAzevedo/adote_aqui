@@ -13,9 +13,21 @@ class AnimalRepository
 
     public function inserir(Animal $animal)
     {
-        $sql = "INSERT INTO animal 
-        (nome, sexo, especie, idade, descricao, numero_contato, foto, castrado, vacinado)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO animal (
+                    nome,
+                    sexo,
+                    especie,
+                    data_nascimento,
+                    porte,
+                    peso_atual,
+                    cor_pelagem,
+                    raca,
+                    descricao,
+                    numero_contato,
+                    foto,
+                    castrado,
+                    vacinado
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -23,12 +35,16 @@ class AnimalRepository
             $animal->nome,
             $animal->sexo,
             $animal->especie,
-            $animal->idade,
+            $animal->data_nascimento ?: null,
+            $animal->porte,
+            $animal->peso_atual !== '' ? $animal->peso_atual : null,
+            $animal->cor_pelagem,
+            $animal->raca,
             $animal->descricao,
             $animal->numero_contato,
             $animal->foto,
-            $animal->castrado,
-            $animal->vacinado
+            $animal->castrado ? 1 : 0,
+            $animal->vacinado ? 1 : 0
         ]);
     }
 
@@ -36,5 +52,12 @@ class AnimalRepository
     {
         $stmt = $this->conn->query("SELECT * FROM animal ORDER BY id DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function buscarPorId($id)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM animal WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

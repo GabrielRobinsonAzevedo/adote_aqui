@@ -10,92 +10,97 @@
 
 <header>
     <h1>Cadastro de Pet</h1>
+    <p>Preencha os dados do animal para disponibilizá-lo na vitrine de adoção.</p>
     <hr>
 </header>
 
 <main>
-    <form id="formSign">
+    <div class="form-wrapper">
+        <form id="formSign">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome *</label>
+                    <input type="text" name="nome" required>
+                </div>
 
-        <div class="form-group">
-            <label>Nome *</label>
-            <input type="text" name="nome" required>
-        </div>
+                <div class="form-group">
+                    <label>Sexo *</label>
+                    <select name="sexo" required>
+                        <option value="">Selecione</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label>Sexo *</label>
-            <select name="sexo" required>
-                <option value="">Selecione</option>
-                <option value="Macho">Macho</option>
-                <option value="Fêmea">Fêmea</option>
-            </select>
-        </div>
+                <div class="form-group">
+                    <label>Espécie *</label>
+                    <input type="text" name="especie" required>
+                </div>
 
-        <div class="form-group">
-            <label>Espécie *</label>
-            <input type="text" name="especie" required>
-        </div>
+                <div class="form-group">
+                    <label>Data de nascimento</label>
+                    <input type="date" name="data_nascimento">
+                </div>
 
-        <div class="form-group">
-            <label>Data de nascimento</label>
-            <input type="date" name="data_nascimento">
-        </div>
+                <div class="form-group">
+                    <label>Porte</label>
+                    <input type="text" name="porte">
+                </div>
 
-        <div class="form-group">
-            <label>Porte</label>
-            <input type="text" name="porte">
-        </div>
+                <div class="form-group">
+                    <label>Peso atual</label>
+                    <input type="number" step="0.1" name="peso_atual">
+                </div>
 
-        <div class="form-group">
-            <label>Peso atual</label>
-            <input type="number" step="0.1" name="peso_atual">
-        </div>
+                <div class="form-group">
+                    <label>Cor da pelagem</label>
+                    <input type="text" name="cor_pelagem">
+                </div>
 
-        <div class="form-group">
-            <label>Cor da pelagem</label>
-            <input type="text" name="cor_pelagem">
-        </div>
+                <div class="form-group">
+                    <label>Raça</label>
+                    <input type="text" name="raca">
+                </div>
 
-        <div class="form-group">
-            <label>Raça</label>
-            <input type="text" name="raca">
-        </div>
+                <div class="form-group full">
+                    <label>Descrição</label>
+                    <textarea name="descricao"></textarea>
+                </div>
 
-        <div class="form-group">
-            <label>Descrição</label>
-            <textarea name="descricao"></textarea>
-        </div>
+                <div class="form-group full">
+                    <label>Contato (WhatsApp) *</label>
+                    <input type="text" name="numero_contato" required>
+                </div>
 
-        <div class="form-group">
-            <label>Contato (WhatsApp) *</label>
-            <input type="text" name="numero_contato" required>
-        </div>
+                <div class="form-group full">
+                    <label>URL da foto</label>
+                    <input type="text" name="foto">
+                </div>
 
-        <div class="form-group">
-            <label>URL da foto</label>
-            <input type="text" name="foto">
-        </div>
+                <div class="form-group full">
+                    <div class="checkbox-row">
+                        <label>
+                            <input type="checkbox" name="castrado">
+                            Castrado
+                        </label>
 
-        <div class="form-group">
-            <label>
-                <input type="checkbox" name="castrado">
-                Castrado
-            </label>
-        </div>
+                        <label>
+                            <input type="checkbox" name="vacinado">
+                            Vacinado
+                        </label>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label>
-                <input type="checkbox" name="vacinado">
-                Vacinado
-            </label>
-        </div>
+            <div class="form-actions">
+                <button type="submit" class="botao corPrincipal">Cadastrar</button>
 
-        <button type="submit" class="botao corPrincipal">Cadastrar</button>
-
-        <a href="index.php">
-            <button type="button" class="botao corSecundaria">Voltar</button>
-        </a>
-
-    </form>
+                <a href="index.php">
+                    <button type="button" class="botao corSecundaria">Voltar</button>
+                </a>
+            </div>
+        </form>
+    </div>
 </main>
 
 <script>

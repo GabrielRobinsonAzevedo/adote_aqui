@@ -24,13 +24,14 @@ if (!$animal || (isset($animal['sucesso']) && $animal['sucesso'] === false)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do PET</title>
+    <title>Detalhes do Pet</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
     <h1><?php echo htmlspecialchars($animal['nome']); ?></h1>
+    <p>Conheça melhor este pet e entre em contato com o responsável para dar o próximo passo na adoção.</p>
     <hr>
 </header>
 
@@ -43,15 +44,50 @@ if (!$animal || (isset($animal['sucesso']) && $animal['sucesso'] === false)) {
         >
 
         <div id="informacoesGerais">
-            <p><strong>Sexo:</strong> <?php echo htmlspecialchars($animal['sexo'] ?? '-'); ?></p>
-            <p><strong>Espécie:</strong> <?php echo htmlspecialchars($animal['especie'] ?? '-'); ?></p>
-            <p><strong>Data de nascimento:</strong> <?php echo htmlspecialchars($animal['data_nascimento'] ?? '-'); ?></p>
-            <p><strong>Porte:</strong> <?php echo htmlspecialchars($animal['porte'] ?? '-'); ?></p>
-            <p><strong>Peso:</strong> <?php echo htmlspecialchars($animal['peso_atual'] ?? '-'); ?></p>
-            <p><strong>Cor da pelagem:</strong> <?php echo htmlspecialchars($animal['cor_pelagem'] ?? '-'); ?></p>
-            <p><strong>Raça:</strong> <?php echo htmlspecialchars($animal['raca'] ?? '-'); ?></p>
-            <p><strong>Vacinado:</strong> <?php echo !empty($animal['vacinado']) ? 'Sim' : 'Não'; ?></p>
-            <p><strong>Castrado:</strong> <?php echo !empty($animal['castrado']) ? 'Sim' : 'Não'; ?></p>
+            <div class="info-card">
+                <span class="info-label">Sexo</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['sexo'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Espécie</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['especie'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Data de nascimento</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['data_nascimento'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Porte</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['porte'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Peso</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['peso_atual'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Cor da pelagem</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['cor_pelagem'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Raça</span>
+                <span class="info-value"><?php echo htmlspecialchars($animal['raca'] ?? '-'); ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Vacinado</span>
+                <span class="info-value"><?php echo !empty($animal['vacinado']) ? 'Sim' : 'Não'; ?></span>
+            </div>
+
+            <div class="info-card">
+                <span class="info-label">Castrado</span>
+                <span class="info-value"><?php echo !empty($animal['castrado']) ? 'Sim' : 'Não'; ?></span>
+            </div>
         </div>
 
         <div id="descricao">
@@ -59,7 +95,7 @@ if (!$animal || (isset($animal['sucesso']) && $animal['sucesso'] === false)) {
             <p><?php echo htmlspecialchars($animal['descricao'] ?? 'Sem descrição.'); ?></p>
         </div>
 
-        <div style="margin-top:20px;">
+        <div class="detail-actions">
             <a href="index.php">
                 <button class="botao corPrincipal">Voltar</button>
             </a>
